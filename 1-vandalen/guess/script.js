@@ -2,6 +2,7 @@
 
 window.onload = function(){
 	
+	
 	var secret = 50; // Detta tal behöver bytas ut mot ett slumpat tal.
 	var min = -1;
 	var max = 100;

@@ -7,11 +7,35 @@ window.onload = function(){
 		// Plats för förändring.		
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
+		
+		if (isNaN(str))
+		{
+			var str2="";
+		
+			var total="";
+			for (var i = 0; i < str.length; i++) 
+			{
+			
+		
+			 str2 += str[i].replace("a",'#').replace("A",'#');
+			
+			if(str[i] == str[i].toUpperCase() ){
+				total += str2[i].toLowerCase();
+			}else{
+				//
+				total += str2[i].toUpperCase();
+			}
+			
+			
+		}
+		
+		return total;
+			}
 	
-
-
-
-
+	else
+	{
+			return "du måste skriva i rutan!! och kan inta bara skriva sifror";
+	}
 
 
 	};
