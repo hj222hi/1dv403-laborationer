@@ -4,13 +4,34 @@ window.onload = function(){
 
 	
 	var birthday = function(date){
+		console.log(date);
+		if(!isNaN(new Date(date).getTime()))
+		{
+			var bday = new Date(date);
+			var today = new Date();	
+			bday.setFullYear(today.getFullYear());
+			today.setDate(today.getDate()-1);
+			if(today > bday)
+			{
+				bday.setFullYear(today.getFullYear()+1);
+			}
+			today.getDate = today.getDate()-1;
+			var tonextDay = Math.floor((bday - today)/(1000*60*60*24));
+
+			return tonextDay;
+		}
 		
-
-
-			// Din kod här.
-
-
-
+			throw new Error("Ey du måste ange ÅÅÅÅ-MM-DD annars blir de ju fel jao")
+		
+		// try
+		// {
+		// 	var bday = new Date(date);
+		// }
+		// catch(err)
+		// {
+		// 	return["Du måste skriva in i formatet ÅÅÅÅ-MM-DD!!!!!!!!!!"]
+		// }
+		
 
 	};
 	// ------------------------------------------------------------------------------
