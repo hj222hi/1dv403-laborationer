@@ -15,13 +15,14 @@ window.onload = function(){
 		},
 		
 		changeText: function(){
-     	document.getElementById('messcount').innerHTML = 'HOJ meddelande';//+ MessageBoard.messages.length;
+     	document.getElementById('messcount').innerHTML = 'Antal meddelande '+ (MessageBoard.messages.length+1);
      	
       	}
     }
       
     var link = document.getElementById("button");
-	link.addEventListener("click",MessageBoard.init, MessageBoard.changeText);
+	link.addEventListener("click", MessageBoard.changeText);
+	link.addEventListener("click", MessageBoard.init);
 
 	
 	
