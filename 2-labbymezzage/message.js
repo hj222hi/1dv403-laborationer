@@ -10,10 +10,7 @@ function Message(message, date){
 		return date
 	}
 	this.setDate = function(_date){
-		var day = _date.getDate();
-	    var month = _date.getMonth() + 1;
-	    var year = _date.getFullYear();
-	    date = _date.getFullYear();
+		
 	    //(day + "/" + month + "/" + year); 
 	    
 	    
@@ -22,6 +19,10 @@ function Message(message, date){
 	Message.prototype.toString = function(){
 		return this.getText()+"("+this.getDate()+")";
 	}
+
+	Message.prototype.getHTMLText = function(){
+    return this.getText().replace(/[\n\r]/g, "<br />");
+};
 
 	Message.prototype.getHTMLText = function(){}
 }
