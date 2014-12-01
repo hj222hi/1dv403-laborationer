@@ -30,8 +30,7 @@ input{
 }
 
 #fotter{
-	margin-top: 30%;
-	
+	margin-top: 33px;
 	margin-left: 44%;
 	color: white;
 	opacity: 0.5;
@@ -46,7 +45,8 @@ a{
 #messageholder{
 	width: 100%;
 	min-height: 73px;
-	background-color: white;
+	
+	
 	padding-right: 6px;
 }
 
@@ -58,4 +58,25 @@ a{
 	/* margin: auto; */
 	text-align: center;
 
+}
+.meddelande{
+	background-color: white;
+font-family: arial;
+/* width: 248px; */
+min-height: 59px;
+/* padding: 80px; */
+padding-left: 23px;
+padding-top: 12px;
+margin-bottom: 20px;
+padding-right: 23px;
+padding-bottom: 12px;
+}
+
+.closeb{
+	background-image: url(closeb.png);
+	background-size: 80px 60px;
+    background-repeat: no-repeat;
+    padding-top: 40px;
+    height: 80px;
+    width:  60px;
 }
