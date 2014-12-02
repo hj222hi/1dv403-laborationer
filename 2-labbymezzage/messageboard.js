@@ -23,6 +23,11 @@ var MessageBoard = {
        document.getElementById("messageholder").innerHTML = "";
     },
     
+    removeMessage: function(messageID){
+            messages.splice(messageID, 1);
+            MessageBoard.renderMessage()
+            document.getElementById('messcount').innerHTML = 'Antal meddelande '+ (MessageBoard.messages.length);
+    },
     changeText: function(){
         document.getElementById('messcount').innerHTML = 'Antal meddelande '+ (MessageBoard.messages.length+1);
     },
@@ -38,11 +43,18 @@ var MessageBoard = {
     renderMessage: function(messageID){
         var text = document.createElement("p");
         var mesagearea = document.createElement("div");
-        var cb = document.createElement("a");
-        cb.className = "closeb";
         mesagearea.className = "meddelande";
         var messArea = document.getElementById("messageholder");
         text.innerHTML = MessageBoard.messages[messageID -1].getHTMLText();
+        
+        var cb = document.createElement("a");
+        var cimg = document.createElement("img");
+  cb.setAttribute("href","#");
+
+        cimg.setAttribute("src","closeb.png");
+        cimg.className = "closeb";
+        cb.className = "clink";
+        cb.appendChild(cimg);
         mesagearea.appendChild(cb);
         messArea.appendChild(mesagearea);
         mesagearea.appendChild(text);
@@ -51,7 +63,8 @@ var MessageBoard = {
 
 window.onload = function(){
     var submit = document.getElementById("button");
-    // submit.addEventListener("click", MessageBoard.changeText);
+    var remove = document.getElementsByClassName("closeb");
+        // submit.addEventListener("click", MessageBoard.changeText);
 	// submit.addEventListener("click", MessageBoard.sender);
 
     submit.addEventListener("click", function(){
@@ -63,8 +76,16 @@ window.onload = function(){
         document.getElementById('messcount').innerHTML = 'Antal meddelande '+ (MessageBoard.messages.length);
 
     });
+    
+var clink = document.getElementsByClassName("clink");
 
-
+    for(var i=0; i < clink.length; i++){
+        clink[i].addEventListener('click', function(){
+            // MessageBoard.removeMessage(MessageBoard.messages.length);
+            alert("hooj");
+        });
+    };
+    
     var clear = document.getElementById("cbutton");
     clear.addEventListener("click",MessageBoard.clearText);
    
