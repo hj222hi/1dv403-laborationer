@@ -58,6 +58,17 @@ var MessageBoard = {
         mesagearea.appendChild(cb);
         messArea.appendChild(mesagearea);
         mesagearea.appendChild(text);
+        MessageBoard.btn();
+    },
+    btn: function(){
+        var clink = document.getElementsByClassName("closeb");
+
+        for(var i=0; i < clink.length; i++){
+            clink[i].addEventListener('click', function(){
+            // MessageBoard.removeMessage(MessageBoard.messages.length);
+            alert("hooj");
+        });
+    }
     }
 }
 
@@ -77,15 +88,9 @@ window.onload = function(){
 
     });
     
-var clink = document.getElementsByClassName("clink");
 
-    for(var i=0; i < clink.length; i++){
-        clink[i].addEventListener('click', function(){
-            // MessageBoard.removeMessage(MessageBoard.messages.length);
-            alert("hooj");
-        });
     };
-    
+  
     var clear = document.getElementById("cbutton");
     clear.addEventListener("click",MessageBoard.clearText);
    
