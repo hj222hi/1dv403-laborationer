@@ -1,8 +1,8 @@
 function Message(message, date){
 
 	this.getText = function(){
-			return message;
-	}
+        return message;
+    };
 	this.setText = function(_text){
 		message = _text;
 	}
@@ -22,6 +22,12 @@ Message.prototype.toString = function(){
 }
 
 Message.prototype.getHTMLText = function(){
-	return this.getText().replace(/[\n\r]/g, "<br />");
+    return this.getText().replace(/[\n\r]/g, "<br />");
 }
+
+Message.prototype.getDateText = function(){
+    var timeStamp = this.getDate();
+    return timeStamp.getHours() + ":" + timeStamp.getMinutes() + ":" + timeStamp.getSeconds();
+};
+
 
