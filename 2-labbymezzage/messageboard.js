@@ -12,6 +12,7 @@ window.onload = function(){
             console.log(MessageBoard.messages[0]);
             console.log(MessageBoard.messages.length);
              document.getElementById('texta').value = "";
+             MessageBoard.renderMessage(MessageBoard.messages.length)
    
 		},
 		
@@ -24,7 +25,6 @@ window.onload = function(){
      	document.getElementById('messcount').innerHTML = 'Antal meddelande '+ (MessageBoard.messages.length+1);
      	
       	},
-        
         renderMessages: function(){
             document.getElementById('texta').innerHTML = "";
 
@@ -37,11 +37,15 @@ window.onload = function(){
             var text = document.createElement("p");
             var mesagearea = document.createElement("div");
             var messArea = document.getElementById("texta")
-            text.innerHTML = MessageBoard.messages[messID -1].mess.toString().getHTMLText();
+            text.innerHTML = MessageBoard.messages[messageID -1];
             messArea.appendChild(mesagearea);
             mesagearea.appendChild(text);
         }
+
+        
+        
     }
+    
       
     var submit = document.getElementById("button");
     submit.addEventListener("click", MessageBoard.changeText);
