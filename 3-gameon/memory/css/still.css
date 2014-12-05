@@ -1,0 +1,41 @@
+@font-face {
+    font-family: rubrik;
+    src: url(poty.ttf);
+}
+
+body{
+	
+	background-image: url("bak.png");
+	background-repeat: repeat-x;
+}
+
+h3{
+	font-family: rubrik;
+	font-size: 90px;
+	letter-spacing: 10px;
+	color: white;
+	margin-left: 35.5%;
+	}
+#wrapper{
+	margin: auto;
+	width: 32%;
+}
+
+#fotter{
+	margin-top: 33px;
+	margin-left: 44%;
+	color: white;
+	opacity: 0.5;
+	font-family: arial;
+}
+a{
+	color: white;
+	text-decoration: none;
+}
+table{
+	margin: auto;
+}
+img{
+	height: 36px;
+
+}
