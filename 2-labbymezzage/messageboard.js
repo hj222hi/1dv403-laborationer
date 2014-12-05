@@ -4,7 +4,9 @@ var MessageBoard = {
     messages: [],
     
     sender: function(value){
-
+        if(value == ""){
+            return;
+        }
         var mess = new Message(value, new Date());
         MessageBoard.messages.push(mess);
         document.getElementById('texta').value = "";
@@ -15,13 +17,13 @@ var MessageBoard = {
     clearText: function(){
 
         var r = confirm("Säker? Tänk på att detta raderar ALLA meddelanden");
-                if (r == true) {
-                    MessageBoard.messages = [];
-       document.getElementById('messcount').innerHTML = 'Antal meddelande '+ (MessageBoard.messages.length);
-       document.getElementById('texta').value = "";
-       document.getElementById("messageholder").innerHTML = "";
-                 
-                } 
+        if (r == true) {
+            MessageBoard.messages = [];
+           document.getElementById('messcount').innerHTML = 'Antal meddelande '+ (MessageBoard.messages.length);
+           document.getElementById('texta').value = "";
+           document.getElementById("messageholder").innerHTML = "";
+         
+        } 
        
     },
     
@@ -86,7 +88,7 @@ var MessageBoard = {
             var r = confirm("Säker? Tänk om de står något viktigt!");
                 if (r == true) {
                  MessageBoard.messages.splice(messageID, 1);
-                 MessageBoard.renderMessages();;
+                 MessageBoard.renderMessages();
                 } 
             
 
@@ -108,8 +110,8 @@ window.onload = function(){
         if (e.keyCode == 13 && !e.shiftKey){
             e.preventDefault();
              var texta = document.getElementById('texta');
-        var text = texta.value;
-        MessageBoard.sender(text); 
+            var text = texta.value;
+            MessageBoard.sender(text); 
         }
     });
     submit.addEventListener("click", function(e){
