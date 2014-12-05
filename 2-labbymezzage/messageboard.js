@@ -88,7 +88,7 @@ var MessageBoard = {
             var r = confirm("Säker? Tänk om de står något viktigt!");
                 if (r == true) {
                  MessageBoard.messages.splice(messageID, 1);
-                 MessageBoard.renderMessages();
+                 MessageBoard.renderMessages(); 
                 } 
             
 
