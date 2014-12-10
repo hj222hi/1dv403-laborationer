@@ -5,8 +5,9 @@ var Memory = {
 	rows: 4,
 	
 	init: function(){
-		var rimg = new RandomGenerator.getPictureArray(Memory.cols, Memory.rows );
-		Memory.pics.push(rimg)
+		//var rimg 
+		Memory.pics =  RandomGenerator.getPictureArray(Memory.cols, Memory.rows );
+		//.push(rimg)
 		console.log(Memory.pics);
 		console.log("46");
 		Memory.renderGame();
@@ -26,23 +27,17 @@ var Memory = {
 				var img = document.createElement("img");
 				
 				var counter = (i*Memory.cols)+j;
-				a.setAttribute("class",""+ j +"");
-				col.setAttribute("class", ""+ counter +"");
+				//a.setAttribute("class",""+ j +"");
+				var imageclass = Memory.pics[counter];
+				img.setAttribute("class",imageclass );
 				
 				img.setAttribute("src","pics/0.png");
 				a.setAttribute("href","#");
-				a.addEventListener('click', function(){
-					// var number = document.getElementsByClassName( ""+ counter +""); 
-					//  var num = 0;
-     //       			number.setAttribute("src","pics/"+Memory.pics[0][num]+".png");
-     //       			num++;
-     alert("hoj");
-        		});
-			
-				a.appendChild(img);
+				
+				a.appendChild(img)
 				col.appendChild(a);
 				row.appendChild(col);
-
+				a.addEventListener('click', Memory.card);
 
 			}
 			table.appendChild(row);
@@ -54,7 +49,21 @@ var Memory = {
 		
 		
 
-	}
+	},
+	card: function(){
+					var imgclass = this.firstChild;
+					var imgpath = imgclass.getAttribute("class")
+					//var ic = imgclass.getAttribute("class")
+						console.log(this.firstChild);
+						//console.log(ic);
+			// var number = document.getElementsByClassName(imageclass); 
+			imgclass.setAttribute("src","pics/"+imgpath+".png");
+			setTimeout(function(){
+ 						imgclass.setAttribute("src","pics/0.png");
+				}, 1000); 
+        	
+	},
+	
 
 }
 window.onload = Memory.init;
