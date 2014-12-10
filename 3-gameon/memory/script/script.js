@@ -61,7 +61,7 @@ var Memory = {
 			
 			console.log(Memory.pressed)
 			if (Memory.pressed.length > 1) {
-				if(Memory.pressed[0] == Memory.pressed[1]){
+				if(Memory.pressed[0] === Memory.pressed[1]){
 					
 					alert("hoj");
 				}
@@ -69,7 +69,7 @@ var Memory = {
 				{
 					var imgtag = document.getElementsByClassName("press");
 					// console.log(imgtag);
-					for(var k = 0; k > imgtag; k++ ){
+					for(var k = 0; k > Memory.pressed; k++ ){
 					document.getElementsByTagName("img")[k].setAttribute("src","pics/0.png");
 					}// imgtag.img.setAttribute("");			
 					Memory.pressed = [];
