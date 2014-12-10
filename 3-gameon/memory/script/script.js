@@ -3,7 +3,7 @@ var Memory = {
 	pics: [], 
 	cols: 4,
 	rows: 4,
-	
+	pressed: [],
 	init: function(){
 		//var rimg 
 		Memory.pics =  RandomGenerator.getPictureArray(Memory.cols, Memory.rows );
@@ -51,18 +51,35 @@ var Memory = {
 
 	},
 	card: function(){
+					
 					var imgclass = this.firstChild;
 					var imgpath = imgclass.getAttribute("class")
-					//var ic = imgclass.getAttribute("class")
 						console.log(this.firstChild);
-						//console.log(ic);
-			// var number = document.getElementsByClassName(imageclass); 
 			imgclass.setAttribute("src","pics/"+imgpath+".png");
-			setTimeout(function(){
- 						imgclass.setAttribute("src","pics/0.png");
-				}, 1000); 
+			imgclass.className += " press";
+			Memory.pressed.push(imgclass);
+			
+			console.log(Memory.pressed)
+			if (Memory.pressed.length > 1) {
+				if(Memory.pressed[0] == Memory.pressed[1]){
+					
+					alert("hoj");
+				}
+				else
+				{
+					var imgtag = document.getElementsByClassName("press");
+					// console.log(imgtag);
+					for(var k = 0; k > imgtag; k++ ){
+					document.getElementsByTagName("img")[k].setAttribute("src","pics/0.png");
+					}// imgtag.img.setAttribute("");			
+					Memory.pressed = [];
+				}
+			};
         	
 	},
+	cardChecker: function(imgclass, imgclass2){
+		
+	}
 	
 
 }
