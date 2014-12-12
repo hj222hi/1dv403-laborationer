@@ -5,6 +5,7 @@ var Memory = {
 	rows: 4,
 	pressed: [],
 	rightpics: [],
+	klickcounter: [],
 	init: function(){
 		//var rimg 
 		Memory.pics =  RandomGenerator.getPictureArray(Memory.cols, Memory.rows );
@@ -55,15 +56,20 @@ var Memory = {
 					
 					var imgclass = this.firstChild;
 					var imgpath = imgclass.getAttribute("class")
+					console.log(imgclass.classList);
 						console.log(this.firstChild);
-			imgclass.setAttribute("src","pics/"+imgpath+".png");
+						var imgPathRight = imgclass.classList[0];
+			imgclass.setAttribute("src","pics/"+imgPathRight+".png");
 			imgclass.className += " press";
 			Memory.pressed.push(imgclass);
+			Memory.klickcounter.push(imgclass);
+			var amountOfClicks = Memory.klickcounter.length;
+					document.getElementById("clickp").innerHTML= "Antal klick " + amountOfClicks;
 			
 			console.log(Memory.pressed)
 			if (Memory.pressed.length > 1) {
-				var class1 = Memory.pressed[0].getAttribute("class");
-				var class2 = Memory.pressed[1].getAttribute("class");
+				var class1 = Memory.pressed[0].classList[0];
+				var class2 = Memory.pressed[1].classList[0];
 				var element1 =  Memory.pressed[1];
 				var element2 = Memory.pressed[0];
 
@@ -74,7 +80,12 @@ var Memory = {
 					console.log(element2);
 					Memory.rightpics.push(element1,element2);
 					console.log(Memory.rightpics);
+					
+					var amountOfRightPics = Memory.rightpics.length;
+					document.getElementById("scorep").innerHTML= "Antal rätt " + amountOfRightPics/2;
 					Memory.pressed = [];
+					console.log(Memory.rightpics.length);
+					
 					//alert("hoj");
 				}
 				else
@@ -83,6 +94,7 @@ var Memory = {
 					console.log(Memory.renderGame.a);
 					var atags = document.querySelectorAll(".classtag");
 					console.log(atags);
+					
 					for(var m = 0; m < atags.length; m++){
 					atags[m].removeEventListener("click", Memory.card);
 					}
@@ -90,6 +102,9 @@ var Memory = {
 						for(var l = 0; l < imgtag.length; l++){
 						imgtag[l].setAttribute("src","pics/0.png");
 						imgclass.className + " press";
+						for(var m = 0; m < atags.length; m++){
+							atags[m].addEventListener("click", Memory.card);
+						}
 					}
 						imgtag = [];
 						Memory.pressed = [];
@@ -97,14 +112,16 @@ var Memory = {
 						console.log(Memory.pressed);
 					}, 1000); 
 					
-					
-								
 					Memory.pressed = [];
+					
 				}
 			};
-        	
+        	Memory.cardChecker();
 	},
-	cardChecker: function(imgclass, imgclass2){
+	cardChecker: function(){
+		if (Memory.rightpics.length === (Memory.cols * Memory.rows)) {
+			alert("GRATTIS DU VANN!! TRYCK F5 FÖR ATT SPELA IGEN")
+		};
 		
 	}
 	
