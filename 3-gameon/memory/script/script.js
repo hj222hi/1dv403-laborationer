@@ -36,6 +36,7 @@ var Memory = {
 				img.setAttribute("src","pics/0.png");
 				a.setAttribute("href","#");
 				a.setAttribute("class","classtag");
+				a.flipped = false;
 				a.appendChild(img)
 				col.appendChild(a);
 				row.appendChild(col);
@@ -54,6 +55,8 @@ var Memory = {
 	},
 	card: function(){
 					
+if(this.flipped == false){
+	this.flipped = true;
 					var imgclass = this.firstChild;
 					var imgpath = imgclass.getAttribute("class")
 					console.log(imgclass.classList);
@@ -74,19 +77,17 @@ var Memory = {
 				var element2 = Memory.pressed[0];
 
 				if( class1 === class2 ){
+					this.removeEventListener("click",Memory.card);
 					element2.setAttribute("class","right");
 					element1.setAttribute("class","right");
 					console.log(element1);
 					console.log(element2);
 					Memory.rightpics.push(element1,element2);
 					console.log(Memory.rightpics);
-					
 					var amountOfRightPics = Memory.rightpics.length;
 					document.getElementById("scorep").innerHTML= "Antal rätt " + amountOfRightPics/2;
 					Memory.pressed = [];
-					console.log(Memory.rightpics.length);
-					
-					//alert("hoj");
+					console.log(Memory.rightpics.length);					
 				}
 				else
 				{
@@ -98,9 +99,12 @@ var Memory = {
 					for(var m = 0; m < atags.length; m++){
 					atags[m].removeEventListener("click", Memory.card);
 					}
+					element1.parentNode.flipped = false;
+					element2.parentNode.flipped = false;
 					setTimeout(function(){
 						for(var l = 0; l < imgtag.length; l++){
 						imgtag[l].setAttribute("src","pics/0.png");
+
 						imgclass.className + " press";
 						for(var m = 0; m < atags.length; m++){
 							atags[m].addEventListener("click", Memory.card);
@@ -110,6 +114,7 @@ var Memory = {
 						Memory.pressed = [];
 						console.log(imgtag);
 						console.log(Memory.pressed);
+
 					}, 1000); 
 					
 					Memory.pressed = [];
@@ -117,7 +122,7 @@ var Memory = {
 				}
 			};
         	Memory.cardChecker();
-	},
+	}},
 	cardChecker: function(){
 		if (Memory.rightpics.length === (Memory.cols * Memory.rows)) {
 			alert("GRATTIS DU VANN!! TRYCK F5 FÖR ATT SPELA IGEN")
