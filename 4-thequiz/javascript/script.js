@@ -41,7 +41,11 @@ var Quiz = {
         answer: function(url){
           var messbox = document.getElementById("messageText");
         
-            Quiz.xhr.open('POST', url, true);
+              var quizanswer = {
+                 "answer": messbox.value
+              };
+              
+              Quiz.xhr.open('POST', url, true);
               Quiz.xhr.setRequestHeader('Content-Type', 'application/json');
               Quiz.xhr.send(JSON.stringify(quizanswer));
         },
