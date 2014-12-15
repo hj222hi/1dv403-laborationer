@@ -1,0 +1,123 @@
+@font-face {
+    font-family: rubrik;
+    src: url(poty.ttf);
+}
+
+body{
+	
+	background-image: url("bak.png");
+	background-repeat: repeat-x;
+	margin:0px;
+	padding:0px;
+}
+
+h3{
+	font-family: rubrik;
+	font-size: 90px;
+	letter-spacing: 10px;
+	color: white;
+	margin-left: 37.5%;
+	}
+p{
+    font-family:arial;
+    color:white;
+    font-size: 9px;
+    margin-top: 2px;
+    
+}
+#wrapper{
+	margin: auto;
+	width: 32%;
+}
+
+#fotter{
+	color: white;
+	/*opacity: 0.5; */
+	font-family: arial;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    height: 59px;
+   
+}
+a{
+	color: white;
+	text-decoration: none;
+}
+
+.window{
+    height: 308px;
+
+-webkit-border-radius: 12px;
+-moz-border-radius: 12px;
+border-radius: 12px;
+-webkit-box-shadow: 3px 3px 21px 0px rgba(28, 21, 28, 0.75);
+-moz-box-shadow:    3px 3px 21px 0px rgba(28, 21, 28, 0.75);
+box-shadow:         3px 3px 21px 0px rgba(28, 21, 28, 0.75);
+}
+
+.windowtop{
+     background-color: #350348;
+
+    height: 25px;
+margin-top: 20%;
+padding-left: 22px;
+-webkit-border-top-left-radius: 12px;
+-webkit-border-top-right-radius: 12px;
+-moz-border-radius-topleft: 12px;
+-moz-border-radius-topright: 12px;
+border-top-left-radius: 12px;
+border-top-right-radius: 12px;
+}
+
+.windowname{
+    font-family: arial;
+color: white;
+float: left;
+font-size: 15px;
+    margin: 0px;
+}
+
+.closeb{
+    
+    width: 13px;
+    float: left;
+    margin-top: 1%;
+    margin-left: 72%;
+    
+    transition-property: transform;
+    transition-duration: 10s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+
+}
+.closeb:hover{
+    -ms-transform: rotate(3600deg); /* IE 9 */
+    -webkit-transform: rotate(3600deg); /* Chrome, Safari, Opera */
+    transform: rotate(3600deg);
+}
+
+.windowcenter{
+    
+    clear: both;
+    background-color: rgb(216, 216, 216);
+    height: 267px;
+    width: 100%;
+    margin-bottom: 0px;
+
+}
+
+.windowbottom{
+    
+   background-color: #350348;
+margin: 0px;
+height: 15px;
+padding-top: -1px;
+padding-top: 1px;
+padding-left: 22px;
+-webkit-border-bottom-left-radius: 12px;
+-moz-border-radius-bottomleft: 12px;
+border-bottom-left-radius: 12px;
+}

@@ -14,12 +14,14 @@ h3{
 font-size: 65px;
 letter-spacing: 10px;
 color: white;
-margin-left: 32.5%;
+
 	}
 #wrapper{
 	margin: auto;
-	width: 32%;
+	width: 87%;
+	text-align: center;
 }
+
 
 #fotter{
 	margin-top: 33px;
@@ -34,4 +36,11 @@ a{
 }
 #question{
 	text-align: center;
+}
+
+p{
+	font-family: arial;
+color: white;
+font-size: 31px;
+
 }
