@@ -58,13 +58,21 @@ var Quiz = {
                       Quiz.res.innerHTML = Quiz.quizObj.message;
                       Quiz.nrOfTriesArray.push(Quiz.counter);
                       Quiz.counter = 0;
+                    
                     if( Quiz.quizObj.nextURL === undefined){
-                        var countPrinter = document.getElementById("countTries");
+                       
                        Quiz.nrOfTriesArray.push(Quiz.counter); 
                        Quiz.countTries.innerHTML = "Antal försök: ";
                        for (var i =1 ; i < Quiz.nrOfTriesArray.length; i++) {
                        Quiz.countTries.innerHTML += "<br>Fråga "+i+": " + Quiz.nrOfTriesArray[i-1];
+                       
                        }
+                       var mess = document.getElementById("messageText");
+                       var but = document.getElementById("button");
+                       console.log(mess);
+                       console.log(but);
+                       mess.setAttribute("hidden", true);
+                       but.setAttribute("hidden", true);
                     }
                     else{
                       Quiz.question(Quiz.quizObj.nextURL);
@@ -95,7 +103,9 @@ var Quiz = {
             Quiz.answer(Quiz.next);
             
         };
+        
         },
+        
              
             
         }
