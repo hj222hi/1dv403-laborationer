@@ -1,12 +1,12 @@
-"use strict"; //objekt.metod/egenskap(argument)
+"use strict"; 
 
 var Quiz = {
     nrOfTriesArray: [],
     quizObj: undefined,
     next: undefined,
-    xhr: new XMLHttpRequest(), // skapar requestObjekt
+    xhr: new XMLHttpRequest(), 
     countTries: undefined,
-    counter: 0, // antal klick
+    counter: 0, 
     res: document.getElementById("response"),
    
     init: function(e) { 
@@ -32,15 +32,13 @@ var Quiz = {
                    Quiz.quizObj = JSON.parse(Quiz.xhr.responseText);
                    
                     console.log(Quiz.quizObj.question);
-                    pTag.innerHTML = Quiz.quizObj.question; // skriver ut frågan
-                   //Quiz.res.innerHTML = Quiz.quizObj.message;
+                    pTag.innerHTML = Quiz.quizObj.question; 
                    Quiz.next = Quiz.quizObj.nextURL;
                     Quiz.click();
                     
                 }
             };
-            // nästa gång den körs vill jag att den ska köra url
-            Quiz.xhr.open('GET', url, true); // måste köra en open för att konfiguera. Alltså Open("GET", "vad vill vi anropa?")
+            Quiz.xhr.open('GET', url, true); 
             Quiz.xhr.send(null);
         },
         
@@ -62,7 +60,8 @@ var Quiz = {
                     if( Quiz.quizObj.nextURL === undefined){
                        
                        Quiz.nrOfTriesArray.push(Quiz.counter); 
-                       Quiz.countTries.innerHTML = "Antal försök: ";
+                      Quiz.countTries.innerHTML = "Du har klarat alla fråger! :) ";
+                       Quiz.countTries.innerHTML += "<br>Antal försök: ";
                        for (var i =1 ; i < Quiz.nrOfTriesArray.length; i++) {
                        Quiz.countTries.innerHTML += "<br>Fråga "+i+": " + Quiz.nrOfTriesArray[i-1];
                        
@@ -97,7 +96,7 @@ var Quiz = {
         },
         
          click: function(){  
-            document.getElementById("button").onclick = function(e){ // hämtar ut knappen och kopplar en eventhanterare
+            document.getElementById("button").onclick = function(e){ 
               Quiz.counter++;
               
             Quiz.answer(Quiz.next);
@@ -112,7 +111,7 @@ var Quiz = {
        
     
 
-//När sidan har laddads in så anropas init.
+
 window.onload = Quiz.init;
 
 
