@@ -1,20 +1,50 @@
 // var theWindow = {
-    var xhr = new XMLHttpRequest(); 
-  var o = 0;
-   
-     function Window(func){
+//   var variables = {  
+//       xhr: new XMLHttpRequest(),
+//   o: -1,
+//     //   o: document.querySelectorAll(".windowcenter").length,
+//         // console.log(o),
+//     // o: variables.k.length,
+//         // console.log(o)
+//       zindexNumber: 0,
+//       marginTop: 30,
+//   };
+    //  function Window(func){
+    //       variables.o++;
+    //       console.log(variables.o);
+    //     var template = document.querySelector("#template");
+    //     var windowTemplate = template.content.querySelector(".window");
+    //     var w = windowTemplate.cloneNode(true);
+    //     // var wt = document.querySelectorAll(".windowtop");
+    //     // console.log(wt);
+    //     // wt.innerHTML(name);
+    //     document.querySelector('#wrapper').appendChild(
+    //     w);
+       
+    //     func();
         
-        var template = document.querySelector("#template");
-        var windowTemplate = template.content.querySelector(".window");
-        var w = windowTemplate.cloneNode(true);
-        
-        document.querySelector('#wrapper').appendChild(
-        w);
-        func;
-    };
+    //     var ThisWindow = document.querySelectorAll(".window");
+    //     // var o = document.querySelectorAll(".windowcenter").length;
+    //     console.log(ThisWindow[variables.o]);
+    //  console.log(variables.o);
+    //     ThisWindow[variables.o].style.zIndex = ""+variables.zindexNumber+"";
+    //     ThisWindow[variables.o].style.marginTop = ""+variables.marginTop+"px"
+    //     fokusWindow(ThisWindow[variables.o]);
+    //     variables.zindexNumber++;
+    //     variables.marginTop += 30;
+     
+    // };
        
        function SetUpImages(){
-        xhr.onreadystatechange = function(){
+            loadCloseButton(variables.o);
+                      
+        //   var o = document.querySelectorAll(".windowcenter").length;
+        //   var wt = document.querySelectorAll(".windowtop");
+        // console.log(wt);
+        // wt.innerHTML("Galleri");
+        //   variables.o++ 
+        variables.xhr.onreadystatechange = function(){
+            console.log(variables.o);
          var imgArray;  
          var load = document.querySelectorAll(".hidden");
          var load2 = document.querySelectorAll(".load");
@@ -22,17 +52,17 @@
          
             //  load[o].classList.add("show");
 
-                if(xhr.readyState === 4 &&xhr.status !== 400){
-                      console.log(load[o]);
-                    load[o].classList.add("hidden")
-                    load2[o].classList.add("hidden")
-                    load3[o].classList.add("hidden")
+                if(variables.xhr.readyState === 4 && variables.xhr.status !== 400){
+                      console.log(load[variables.o]);
+                    load[variables.o].classList.add("hidden")
+                    load2[variables.o].classList.add("hidden")
+                    load3[variables.o].classList.add("hidden")
                      
-                   imgArray = JSON.parse(xhr.responseText);
+                   imgArray = JSON.parse(variables.xhr.responseText);
                 //   console.log(imgArray);
                   
                     var windowCenter = document.querySelectorAll(".windowcenter");
-                    console.log(windowCenter[o]);
+                    console.log(windowCenter[variables.o]);
                    
                     for(var i = 0; i < imgArray.length; i++){
                         var tumbHolder = document.createElement("div");
@@ -43,7 +73,7 @@
                         a.setAttribute("href","#")
                         a.setAttribute("class","atag")
                         
-                        windowCenter[o].appendChild(a);
+                        windowCenter[variables.o].appendChild(a);
                        
                         a.appendChild(tumbHolder);
                         tumb.setAttribute("class",""+i+"")
@@ -71,9 +101,8 @@
               setBackground(tumbHolder, imgArray[i].URL);
              
                     }
-                        console.log(o);
-                        loadCloseButton(o);
-                        o++ 
+                        console.log(variables.o);
+                       
                         tumbHolder.appendChild(tumb);
                         // var atagArray = document.querySelector(".atag");
                         //  for(var k = 0; k < imgArray.length; k++){
@@ -85,8 +114,8 @@
                 // console.log(windowCenter);
                  
             };
-           xhr.open('GET','http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/', true); 
-        xhr.send(null);
+           variables.xhr.open('GET','http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/', true); 
+        variables.xhr.send(null);
             
         // var wName = document.getElementsByClassName("windowname") 
         // for(var n = 0; n< wName.length; n++){
@@ -98,9 +127,9 @@
      function setBackground (tumbHolder, url){
         //  console.log(tumbHolder);
             tumbHolder.addEventListener("click", function(){
-                 var body = document.getElementsByTagName("body");
+                 var body = document.getElementById("dabody");
                 //  console.log(body);
-                  body[0].style.backgroundImage = 'url('+url+')';
+                  body.style.backgroundImage = 'url('+url+')';
             })
          
      };
@@ -113,10 +142,18 @@
          closeButton[windowNumber].addEventListener("click", function(theWindowThatsAboutToBeClosed){
             //  console.log(theWindowThatsAboutToBeClosed);
              allTheWindows[windowNumber].style.display = 'none';
-             
+             variables.marginTop - 30;
              
          });
-     }
+     };
+     
+     function fokusWindow(thisWIndow){
+         
+         thisWIndow.addEventListener("click", function(){
+             var higherZindex = variables.zindexNumber += 1;
+             thisWIndow.style.zIndex = ""+ higherZindex+"";
+         });
+     };
     //  presser: function(imgA){
         
     //         var body = document.getElementsByTagName('body')[0];
