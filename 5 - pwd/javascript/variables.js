@@ -1,6 +1,6 @@
  var variables = {  
        xhr: new XMLHttpRequest(),
-   o: -1,
+   windowCounter: -1,
     //   o: document.querySelectorAll(".windowcenter").length,
         // console.log(o),
     // o: variables.k.length,

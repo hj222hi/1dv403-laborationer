@@ -215,4 +215,18 @@ color: black;
 font-size: 16px;
 text-decoration: underline;
 }
-    
+
+#memolink{
+    margin-left: 81px;
+}
+
+table tr td img{
+    width:129px;
+}
+
+.scorep{
+    font-family: arial;
+font-size: 20px;
+margin-left: 10px;
+color: black;
+}
