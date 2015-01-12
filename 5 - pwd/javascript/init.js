@@ -1,34 +1,34 @@
 "use strict"
 var theWindow = {
-
+//initeierar galleriknappen
     setButtonPics: function(){
         
-         document.getElementById("picslink").onclick = function(){ 
+         document.getElementById("picslink").addEventListener("click", function(){ 
 
-        window1: new Window(SetUpImages);
-  
+            var Window1 = new WindowCapselr.Window(Gallery.SetUpImages,"Gallery", "pics/pics.png");
+          
         
-        };
+        });
     },
-    
+//initeierar rssknappen    
     setRSSPics: function(){
         document.getElementById("rsslink").onclick = function(){ 
    
-        window2: new Window(rssWindow.SetUpRss);
+       var window2 = new WindowCapselr.Window(RssWindow.SetUpRss(),"RSS","pics/rss.png");
        
         }
         // addToO();
         },
-        
+//initeierar memoryknappen
     setMemoryPics: function(){
         document.getElementById("memolink").onclick = function(){ 
    
-        Memorywindow: new Window(Memory.initMemory());
+        var window3 = new WindowCapselr.Window(Memory.initMemory(),"Memory","pics/game.png");
         
         // addToO();
         }
     },
-   
+//Kör koderna som fixar knapparna
     initButton: function(){
        theWindow.setButtonPics();
        theWindow.setRSSPics()
@@ -39,5 +39,5 @@ var theWindow = {
   
     };
 
-
+//Kör initfunktionen
 window.onLoad = theWindow.initButton();

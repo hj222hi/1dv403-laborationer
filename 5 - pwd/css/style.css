@@ -230,3 +230,15 @@ font-size: 20px;
 margin-left: 10px;
 color: black;
 }
+
+.wname{
+    float: left;
+font-size: 18px;
+margin-bottom: -10px;
+}
+
+.wimg{
+    width: 22px;
+float: left;
+margin-right: 10px;
+}

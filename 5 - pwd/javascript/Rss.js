@@ -1,4 +1,4 @@
-var rssWindow ={
+var RssWindow ={
        
     SetUpRss: function(){
         console.log("den kör");
